@@ -12,13 +12,13 @@ import {
 
 // ✅ Your Firebase config
 const firebaseConfig = {
-  apiKey: "AIzaSyBlDsjqlDfWCP32yGt8OmbO4g5wtxXv2dg",
-  authDomain: "ztype-leaderboard-backend.firebaseapp.com",
-  projectId: "ztype-leaderboard-backend",
-  storageBucket: "ztype-leaderboard-backend.appspot.com",
-  messagingSenderId: "667807a302055",
-  appId: "1:667807302055:web:7406a22685c5c54f3db682",
-  measurementId: "G-3PBFQTC2V1",
+  apiKey: "AIzaSyDdlB2tEp3IPKHi0omoNSYRR720ycEOET8",
+  authDomain: "leaderboard-6a7a6.firebaseapp.com",
+  projectId: "leaderboard-6a7a6",
+  storageBucket: "leaderboard-6a7a6.firebasestorage.app",
+  messagingSenderId: "329400579144",
+  appId: "1:329400579144:web:0cde884ea0abfcc617147d",
+  measurementId: "G-3Y5QLDEFGQ",
 };
 
 // ✅ Initialize Firebase only once
@@ -42,7 +42,7 @@ export default function LeaderboardPage() {
     const q = query(
       collection(db, "scores"),
       orderBy("score", "desc"),
-      limit(5)
+      limit(10)
     );
     const unsubscribe = onSnapshot(q, (snapshot) => {
       const data: User[] = snapshot.docs.map((doc, i) => ({
@@ -62,18 +62,18 @@ export default function LeaderboardPage() {
       <div className="absolute top-[-65px] left-1/2 -translate-x-1/2 w-96 h-[300px] rounded-full bg-gradient-to-b from-[#082e54] via-[#0b2c51] to-[#0e2b4e] z-[-2] blur-3xl opacity-90" />
 
       <div className="flex z-[1] pt-5 justify-between px-12">
-        <div className="text-white text-3xl font-bold">ztype</div>
+        
         <div className="flex justify-between md:gap-10 lg:gap-16 xl:gap-28">
-          <button className="text-white">Home</button>
+          
           <ButtonBackground name="Leader Board" />
-          <button className="text-white">Reward</button>
+          
         </div>
         <div>
           <img className="w-fit h-12" src="amfoss-logo.png" alt="Description" />
         </div>
       </div>
 
-      <div className="flex justify-center gap-24 items-end mt-48">
+      <div className="flex justify-center gap-24 items-end mt-14">
         {(() => {
           const top3 = users.slice(0, 3);
 
@@ -118,7 +118,7 @@ export default function LeaderboardPage() {
             </tr>
           </thead>
           <tbody>
-            {users.slice(3, 5).map((user, idx) => (
+            {users.slice(3, 11).map((user, idx) => (
               <tr
                 key={idx}
                 className="bg-gradient-to-r from-[#1e2434] to-[#151a27] hover:from-[#25304a] hover:to-[#1a1f2f] transition duration-300 shadow-md rounded-xl overflow-hidden"
